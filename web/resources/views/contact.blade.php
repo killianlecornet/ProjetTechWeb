@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('contenu')
-<div><h1>Bonjour {{ request('prenom') }}</h1></div>
-@endsection
+    <h1>Bienvenue dans Contact</h1>
 
+    <p>Hey {{ $prenom }}</p>
+@endsection

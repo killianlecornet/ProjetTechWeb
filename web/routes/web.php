@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\User as User ;
+use App\Models\User as User;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,39 +14,33 @@ use App\Models\User as User ;
 |
 */
 
-
-
-Route::view('/', 'inscription');
-
-ROute::group([
-    'middleware' => 'App\Http\Middleware\Auth',
-], function(){
-    Route::get('/password_modification', 'App\Http\Controllers\UserAccountController@form_password_modification');
-
-    Route::post('/password_modification', 'App\Http\Controllers\UserAccountController@password_modification');
-
-    Route::get('/dashboard', 'App\Http\Controllers\UserAccountController@dashboard');
-
-    Route::post('new_post','App\Http\Controllers\PostController@new_post');
-
-    Route::get('/signout', 'App\Http\Controllers\UserAccountController@signout');
-
-    Route::post('/{email}/follow','App\Http\Controllers\usersController@followings');
-    
-    Route::delete('/{email}/follow','App\Http\Controllers\usersController@unfollow');
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::get('/inscription', 'App\Http\Controllers\InscriptionController@formulaire' );
+Route::get('/contact/{prenom}', function () {
+    $prenom = request('prenom');
+    return view('contact', [
+        'prenom' => $prenom
+    ]);
+});
+
+Route::get('/inscription', 'App\Http\Controllers\InscriptionController@formulaire');
 
 Route::post('/inscription', 'App\Http\Controllers\InscriptionController@inscription');
 
-// Route::get('/users/index', 'App\Http\Controllers\UsersController@index' );
+Route::get('/index' , 'App\Http\Controllers\UsersController@index');
 
-// Route::get('/users/{id}', 'App\Http\Controllers\UsersController@show')->name('Show.User');
+Route::get('/users/{id}', 'App\Http\Controllers\UsersController@show')->name('Show.User');
 
-Route::get('/connexion', 'App\Http\Controllers\ConnexionController@form');
+Route::get('/connexion' , 'App\Http\Controllers\ConnexionController@form');
 
-Route::post('/connexion', 'App\Http\Controllers\ConnexionController@connexion');
+Route::post('/connexion' , 'App\Http\Controllers\ConnexionController@connexion');
 
-// Route::get('/{email}', 'App\Http\Controllers\UsersController@profil')->name('Show.profil');
+Route::get('/dashboard' , 'App\Http\Controllers\UserAccountController@dashboard');
 
+Route::get('/signout' , 'App\Http\Controllers\UserAccountController@signout');
+
+Route::get('/password_modification' , 'App\Http\Controllers\UserAccountController@form_password_modification' );
+
+Route::post('/password_modification' , 'App\Http\Controllers\UserAccountController@form_password_modification' );
