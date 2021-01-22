@@ -40,4 +40,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function posts(){
+        return $this->hasMany(Post::class)->latest();
+    }
+
+    public function followings(){
+        return $this->belongsToMany(User::class, 'followings', 'follower_id', 'following_id');
+    }
+
+    public function followers(){
+        return $this->belongsToMany(User::class, 'followings', 'following_id', 'follower_id');
+    }
+
+    public function follows($user){
+        return $this->followings()->where('following_id', $user->id)->exists();
+    }
 }
