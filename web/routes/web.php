@@ -40,13 +40,13 @@ Route::get('/inscription', 'App\Http\Controllers\InscriptionController@formulair
 
 Route::post('/inscription', 'App\Http\Controllers\InscriptionController@inscription');
 
-Route::get('/users/index', 'App\Http\Controllers\UsersController@index' );
+// Route::get('/users/index', 'App\Http\Controllers\UsersController@index' );
 
-Route::get('/users/{id}', 'App\Http\Controllers\UsersController@show')->name('Show.User');
+// Route::get('/users/{id}', 'App\Http\Controllers\UsersController@show')->name('Show.User');
 
 Route::get('/connexion', 'App\Http\Controllers\ConnexionController@form');
 
 Route::post('/connexion', 'App\Http\Controllers\ConnexionController@connexion');
 
-Route::get('/{email}', 'App\Http\Controllers\UsersController@profil')->name('Show.profil');
+// Route::get('/{email}', 'App\Http\Controllers\UsersController@profil')->name('Show.profil');
 
