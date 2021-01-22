@@ -2,6 +2,6 @@
     min-height: calc(100vh - 56vh -56vh);
 }
 
-body {
-    background-color: red;
+.saucisse {
+    color: blue;
 }
