@@ -122,7 +122,7 @@
             @if(auth()->check())
                 <a class="btn btn-sm btn-outline-secondary" href="signout">Sign out</a>
             @else
-                <a class="btn btn-sm btn-outline-secondary" href="connexion">Sign up</a>
+                <a class="btn btn-sm btn-outline-secondary" href="http://127.0.0.1:8000/connexion">Sign up</a>
             @endif
         
       </div>
