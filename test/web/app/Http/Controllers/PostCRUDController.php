@@ -12,6 +12,8 @@ class PostCRUDController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     
     public function index()
     {
         $data['posts'] = Post::orderBy('id','desc')->paginate(5);
@@ -28,6 +30,8 @@ class PostCRUDController extends Controller
     {
         return view('posts.create');
     }
+
+    
     
     /**
      * Store a newly created resource in storage.
@@ -55,7 +59,8 @@ class PostCRUDController extends Controller
 
         $post->save();
 
-     
+    
+
         return redirect()->route('posts.index')
                         ->with('success','Post has been created successfully.');
     }
@@ -70,6 +75,7 @@ class PostCRUDController extends Controller
     {
         return view('posts.show',compact('post'));
     } 
+
      
     /**
      * Show the form for editing the specified resource.

@@ -1,8 +1,11 @@
+@extends('layout')
+
+@section('contenu')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Blog Post Form - Laravel 8 CRUD Tutorial</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
 </head>
@@ -52,7 +55,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Post Price:</strong>
-                <textarea class="form-control" style="height:150px" name="price" placeholder="Post price"></textarea>
+                <input type="text" name="price" class="form-control" placeholder="Post price">
                 @error('price')
                   <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
@@ -74,3 +77,4 @@
 
 </body>
 </html>
+@endsection
