@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostCRUDController;
 use App\Models\User as User;
 
 /*
@@ -16,6 +17,7 @@ use App\Models\User as User;
 
 Route::get('/', function () {
     return view('welcome');
+    
 });
 
 Route::get('/contact/{prenom}', function () {
@@ -44,3 +46,7 @@ Route::get('/signout' , 'App\Http\Controllers\UserAccountController@signout');
 Route::get('/password_modification' , 'App\Http\Controllers\UserAccountController@form_password_modification' );
 
 Route::post('/password_modification' , 'App\Http\Controllers\UserAccountController@form_password_modification' );
+
+Route::resource('posts', PostCRUDController::class);
+
+Route::post('/panier/ajouter', 'App\Http\Controllers\Cartcontroller@store')->name('cart.store');
