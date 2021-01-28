@@ -50,3 +50,15 @@ Route::post('/password_modification' , 'App\Http\Controllers\UserAccountControll
 Route::resource('posts', PostCRUDController::class);
 
 Route::post('/panier/ajouter', 'App\Http\Controllers\Cartcontroller@store')->name('cart.store');
+
+Route::get('/email', 'App\Http\Controllers\EmailController@create');
+
+Route::post('/email', 'App\Http\Controllers\EmailController@sendEmail')->name('send.email');
+
+Route::get('/videpanier', function (){
+    Cart::destroy();
+});
+
+Route::get('/mon-panier', 'App\Http\Controllers\Cartcontroller@index')->name('cart.index');
+
+Route::delete('/panier/{id}', 'App\Http\Controllers\Cartcontroller@destroy')->name('cart.destroy');

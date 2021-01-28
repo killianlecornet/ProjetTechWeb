@@ -67,8 +67,8 @@
                 <form action="{{ route('cart.store') }}" method="POST">
                     {{csrf_field()}}
                     
+                    <input type="hidden" name="id" value="{{ $post->id }}">
                     <input type="hidden" name="title" value="{{ $post->title }}">
-                    <input type="hidden" name="description" value="{{ $post->description }}">
                     <input type="hidden" name="price" value="{{ $post->price }}">
                 
                     <button type="submit" class="btn btn-dark">Ajouter au panier</button>

@@ -31,8 +31,8 @@
     <nav class="nav d-flex justify-content-between">
       <a class="p-2 text-muted" href="http://127.0.0.1:8000/posts">POST</a>
       <a class="p-2 text-muted" href="http://127.0.0.1:8000/index">Users</a>
-      <a class="p-2 text-muted" href="#">Console</a>
-      <a class="p-2 text-muted" href="#">Jeux </a>
+      <a class="p-2 text-muted" href="http://127.0.0.1:8000/email">Mails</a>
+      <a class="p-2 text-muted" href="{{ route('cart.index') }}">Panier <span class="badge badge-pill badge-dark">{{ Cart::count() }}</span></a>
       <a class="p-2 text-muted" href="#">A la Une</a>
 
     </nav>
